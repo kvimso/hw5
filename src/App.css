@@ -1,0 +1,205 @@
+/* Modern Theme Variables */
+:root {
+  --background-gradient: linear-gradient(135deg, #f6f8fb 0%, #f0f4f8 100%);
+  --card-background: #ffffff;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --highlight-color: #4f46e5;
+  --highlight-hover: #4338ca;
+  --button-background: #4f46e5;
+  --button-hover: #4338ca;
+  --button-text: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --timer-background: #f7f9fc;
+  --border-radius: 16px;
+  --transition-speed: 0.2s;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --background-gradient: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  --card-background: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --highlight-color: #6366f1;
+  --highlight-hover: #818cf8;
+  --button-background: #6366f1;
+  --button-hover: #818cf8;
+  --button-text: #ffffff;
+  --timer-background: #1a202c;
+}
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background-gradient);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: background var(--transition-speed);
+  padding: 1rem;
+}
+
+/* Main App Container */
+.app {
+  width: 100%;
+  max-width: 550px; /* Increased width */
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 2.5rem; /* Increased padding */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed);
+  text-align: center;
+}
+
+/* Typography */
+h1 {
+  color: var(--text-primary);
+  font-size: 2.5rem; /* Increased font size */
+  font-weight: 700;
+  margin-bottom: 1.5rem; /* Increased margin */
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.2rem; /* Increased font size */
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* Game Display */
+.display-text {
+  display: block;
+  color: var(--highlight-color);
+  font-size: 2rem; /* Increased font size */
+  font-weight: 600;
+  padding: 1.5rem; /* Increased padding */
+  margin: 1.5rem 0;
+  background: var(--timer-background);
+  border-radius: calc(var(--border-radius) / 2);
+  transition: all var(--transition-speed);
+  text-align: center;
+}
+
+/* Coordinates Display */
+.coordinates {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem; /* Increased font size */
+  color: var(--text-secondary);
+  background: var(--timer-background);
+  padding: 0.75rem;
+  border-radius: calc(var(--border-radius) / 2);
+  margin: 1.2rem 0;
+  text-align: center;
+}
+
+/* Timer Component */
+.timer {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--timer-background);
+  border-radius: calc(var(--border-radius) / 2);
+  text-align: center;
+}
+
+.timer h2 {
+  color: var(--text-primary);
+  font-size: 1.5rem; /* Increased font size */
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+/* Button Styles */
+button {
+  background: var(--button-background);
+  color: var(--button-text);
+  border: none;
+  border-radius: calc(var(--border-radius) / 2);
+  padding: 1rem 2rem; /* Increased padding */
+  font-size: 1.1rem; /* Increased font size */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  margin: 0.75rem;
+  text-align: center;
+}
+
+button:hover:not(:disabled) {
+  background: var(--button-hover);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.theme-switcher button {
+  background: var(--timer-background);
+  color: var(--text-primary);
+  border: 1px solid var(--text-secondary);
+}
+
+.theme-switcher button:hover {
+  background: var(--highlight-color);
+  color: var(--button-text);
+  border-color: var(--highlight-color);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .app {
+    padding: 1.8rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .display-text {
+    font-size: 1.75rem;
+  }
+
+  button {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app > * {
+  animation: fadeIn 0.3s ease-out forwards;
+}
